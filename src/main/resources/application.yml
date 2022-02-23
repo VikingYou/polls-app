@@ -26,3 +26,8 @@ logging:
       hibernate:
         SQL: DEBUG
 
+app:
+  cors:
+    allowedOrigins: http://localhost:3000
+#  jwtSecret: eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxODg2MjMyNzE3MiIsIm5hbWUiOiJWaWtpbmcgWW91IiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.TCA7twK8dacEVmNow0vTR0HauJwQ2f94GUl7uVLvGxZ9I_HRe4WGQ__G8GddvJZ-fvjKsF_LZX8s-lp09_ZsYQ
+  jwtExpirationInMs: 604800000
