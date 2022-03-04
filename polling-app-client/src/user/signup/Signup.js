@@ -10,6 +10,8 @@ import {
     USERNAME_MIN_LENGTH
 } from "../../constants";
 
+const FormItem = Form.Item;
+
 class Signup extends Component {
     constructor(props) {
         super(props);
@@ -97,7 +99,7 @@ class Signup extends Component {
                                 value={this.state.name.value}
                                 onChange={(event => this.handleInputChange(event, this.validateName))}/>
                         </FormItem>
-                        <FormItem label="用户名"
+                        <Form.Item label="用户名"
                                   hasFeedBack
                                   validateStatus={this.state.username.validateStatus}
                                   help={this.state.username.errorMsg}>
@@ -109,7 +111,7 @@ class Signup extends Component {
                                 value={this.state.username.value}
                                 obBlur={this.validateUsernameAvailability}
                                 onChange={(event => this.handleInputChange(event, this.validateUsername))}/>
-                        </FormItem>
+                        </Form.Item>
                         <FormItem
                             label="邮箱"
                             hasFeedBack
