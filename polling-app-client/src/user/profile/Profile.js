@@ -2,6 +2,9 @@ import {Component} from "react";
 import {Avatar, Tabs} from "antd";
 import {getUserProfile} from "../../util/APIUtils";
 import {formatDate} from "../../util/Helpers";
+import NotFound from "../../common/NotFound";
+import LoadingIndicator from "../../common/LoadingIndicator";
+import ServerError from "../../common/ServerError";
 
 const TabPane = Tabs.TabPane;
 
@@ -62,7 +65,7 @@ class Profile extends Component {
         }
 
         if (this.state.serverError) {
-            return <ServerError/>;
+            return <ServerError />;
         }
 
         const tabBarStyle = {
