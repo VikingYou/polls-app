@@ -30,24 +30,28 @@ class LoginForm extends Component {
     handleSubmit(event) {
         event.preventDefault();
         this.props.form.validateFields((err, values) => {
-            login(loginRequest)
-                .then(response => {
-                    localStorage.setItem(ACCESS_TOKEN, response.accessToken);
-                    this.props.onLogin();
-                }).catch(error => {
-                if (error.status === 401) {
-                    notification.error({
-                        message: '投票APP',
-                        description: '你的用户名和密码不对，请重试'
-                    });
-                } else {
-                    notification.error({
-                        message: '投票APP',
-                        description: error.message || '出了些问题，请重试'
+                if (!err) {
+                    const loginRequest = Object.assign({}, values);
+                    login(loginRequest)
+                        .then(response => {
+                            localStorage.setItem(ACCESS_TOKEN, response.accessToken);
+                            this.props.onLogin();
+                        }).catch(error => {
+                        if (error.status === 401) {
+                            notification.error({
+                                message: '投票APP',
+                                description: '你的用户名和密码不对，请重试'
+                            });
+                        } else {
+                            notification.error({
+                                message: '投票APP',
+                                description: error.message || '出了些问题，请重试'
+                            });
+                        }
                     });
                 }
-            });
-        });
+            }
+        );
     }
 
     render() {

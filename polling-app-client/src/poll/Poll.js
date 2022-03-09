@@ -62,7 +62,7 @@ class Poll extends Component {
                 pollChoices.push(<CompletedOrVotedPollChoice
                     key={choice.id}
                     choice={choice}
-                    isWinner={winningChoice && choice.id === winingChoice.id}
+                    isWinner={winningChoice && choice.id === winningChoice.id}
                     isSelected={this.isSelected(choice)}
                     percentVote={this.calculatePercentage(choice)}/>);
             });
@@ -113,7 +113,7 @@ class Poll extends Component {
                     }
                     <span className="total-votes">{this.props.poll.totalVotes}votes</span>
                     <span className="seprator">·</span>
-                    <span className={time - left}>
+                    <span className="time-left">
                         {
                             this.props.poll.expired ? "最终结果" :
                                 this.getTimeRemaining(this.props.poll)

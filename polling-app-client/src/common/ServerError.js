@@ -17,3 +17,5 @@ class ServerError extends Component {
         )
     }
 }
+
+export default ServerError;

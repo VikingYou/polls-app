@@ -1,4 +1,4 @@
-import {Component} from "react";
+import React, {Component} from "react";
 import {checkEmailAvailability, checkUsernameAvailability, signup} from "../../util/APIUtils";
 import {Button, Form, Input, notification} from "antd";
 import {Link} from "react-router-dom";
@@ -100,9 +100,9 @@ class Signup extends Component {
                                 onChange={(event => this.handleInputChange(event, this.validateName))}/>
                         </FormItem>
                         <Form.Item label="用户名"
-                                  hasFeedBack
-                                  validateStatus={this.state.username.validateStatus}
-                                  help={this.state.username.errorMsg}>
+                                   hasFeedBack
+                                   validateStatus={this.state.username.validateStatus}
+                                   help={this.state.username.errorMsg}>
                             <Input
                                 size="large"
                                 name="username"

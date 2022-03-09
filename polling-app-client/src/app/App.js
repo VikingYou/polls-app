@@ -1,9 +1,8 @@
-import React, {Component} from "react";
-import './App.css';
-import {Route, withRouter, Switch} from "react-router-dom";
+import  {Component} from "react";
+import {Route, withRouter, Switch, Routes, useNavigate} from "react-router-dom";
 
-import { getCurrentUser } from '../util/APIUtils';
-import { ACCESS_TOKEN } from '../constants';
+import {getCurrentUser} from '../util/APIUtils';
+import {ACCESS_TOKEN} from '../constants';
 
 import PollList from '../poll/PollList';
 import NewPoll from '../poll/NewPoll';
@@ -15,8 +14,9 @@ import NotFound from '../common/NotFound';
 import LoadingIndicator from '../common/LoadingIndicator';
 import PrivateRoute from '../common/PrivateRoute';
 
-import { Layout, notification } from 'antd';
-const { Content } = Layout;
+import {Layout, notification} from 'antd';
+
+const {Content} = Layout;
 
 class App extends Component {
     constructor(props) {
@@ -26,7 +26,7 @@ class App extends Component {
             isAuthenticated: false,
             isLoading: true
         }
-        this.handleLogOut = this.handleLogOut.bind(this);
+        this.handleLogout = this.handleLogout.bind(this);
         this.loadCurrentUser = this.loadCurrentUser.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
 
@@ -102,7 +102,7 @@ class App extends Component {
 
                 <Content className="app-content">
                     <div className="container">
-                        <Switch>
+                        <Routes>
                             <Route exact path="/"
                                    render={(props) => <PollList isAuthenticated={this.state.isAuthenticated}
                                                                 currentUser={this.state.currentUser}
@@ -125,7 +125,7 @@ class App extends Component {
                             <Route component={NotFound}>
 
                             </Route>
-                        </Switch>
+                        </Routes>
                     </div>
                 </Content>
             </Layout>
@@ -134,4 +134,4 @@ class App extends Component {
 }
 
 
-export default withRouter(App);
+export default App;

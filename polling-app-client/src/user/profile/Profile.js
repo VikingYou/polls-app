@@ -5,6 +5,8 @@ import {formatDate} from "../../util/Helpers";
 import NotFound from "../../common/NotFound";
 import LoadingIndicator from "../../common/LoadingIndicator";
 import ServerError from "../../common/ServerError";
+import {getAvatarColor} from "../../util/Colors";
+import PollList from "../../poll/PollList";
 
 const TabPane = Tabs.TabPane;
 
@@ -65,7 +67,7 @@ class Profile extends Component {
         }
 
         if (this.state.serverError) {
-            return <ServerError />;
+            return <ServerError/>;
         }
 
         const tabBarStyle = {
@@ -114,3 +116,5 @@ class Profile extends Component {
         );
     }
 }
+
+export default Profile;

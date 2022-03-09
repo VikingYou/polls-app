@@ -1,7 +1,8 @@
 import {Button, Col, Form, Input, notification, Select} from "antd";
 import {Component} from "react";
-import {POLL_CHOICE_MAX_LENGTH, POLL_LIST_SIZE, POLL_QUESTION_MAX_LENGTH} from "../constants";
-import Icon from "@ant-design/icons";
+import {MAX_CHOICES, POLL_CHOICE_MAX_LENGTH, POLL_LIST_SIZE, POLL_QUESTION_MAX_LENGTH} from "../constants";
+import Icon, {PlusOutlined} from "@ant-design/icons";
+import {createPoll} from "../util/APIUtils";
 
 const Option = Select.Option;
 const FormItem = Form.Item;
@@ -35,6 +36,15 @@ class NewPoll extends Component {
     }
 
     addChoice(event) {
+        const choices = this.state.choices.slice();
+        this.setState({
+            choices: choices.concat([{
+                text: ''
+            }])
+        });
+    }
+
+    removeChoice(choiceNumber) {
         const choices = this.state.choices.slice();
         this.setState({
             choices: [...choices.slice(0, choiceNumber), ...choices.slice(choiceNumber + 1)]

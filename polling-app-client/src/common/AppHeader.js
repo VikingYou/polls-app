@@ -1,6 +1,7 @@
 import {Dropdown, Layout, Menu} from "antd";
 import {Component} from "react";
-import {Link, withRouter} from "react-router-dom";
+import {Link} from "react-router-dom";
+import pollIcon from '../logo.svg';
 import {DownOutlined, HomeOutlined, UserOutlined} from "@ant-design/icons";
 
 const Header = Layout.Header
@@ -100,4 +101,4 @@ function ProfileDropdownMenu(props) {
     );
 }
 
-export default withRouter(AppHeader);
+export default AppHeader;
