@@ -1,5 +1,9 @@
-import  {Component} from "react";
-import {Route, withRouter, Switch, Routes, useNavigate} from "react-router-dom";
+import React, {Component, Fragment} from "react";
+import {
+    Route,
+    withRouter,
+    Switch
+} from 'react-router-dom';
 
 import {getCurrentUser} from '../util/APIUtils';
 import {ACCESS_TOKEN} from '../constants';
@@ -102,30 +106,23 @@ class App extends Component {
 
                 <Content className="app-content">
                     <div className="container">
-                        <Routes>
+                        <Switch>
                             <Route exact path="/"
                                    render={(props) => <PollList isAuthenticated={this.state.isAuthenticated}
                                                                 currentUser={this.state.currentUser}
                                                                 handleLogout={this.handleLogout} {...props} />}>
                             </Route>
                             <Route path="/login"
-                                   render={(props) => <Login onLogin={this.handleLogin}{...props} />}>
-                            </Route>
-                            <Route path="/signup" component={Signup}>
-                            </Route>
+                                   render={(props) => <Login onLogin={this.handleLogin} {...props} />}></Route>
+                            <Route path="/signup" component={Signup}></Route>
                             <Route path="/users/:username"
                                    render={(props) => <Profile isAuthenticated={this.state.isAuthenticated}
-                                                               currentUser={this.state.currentUser}{...props} />}>
-
+                                                               currentUser={this.state.currentUser} {...props}  />}>
                             </Route>
                             <PrivateRoute authenticated={this.state.isAuthenticated} path="/poll/new"
-                                          component={NewPoll} handleLogout={this.handleLogOut}>
-
-                            </PrivateRoute>
-                            <Route component={NotFound}>
-
-                            </Route>
-                        </Routes>
+                                          component={NewPoll} handleLogout={this.handleLogout}></PrivateRoute>
+                            <Route component={NotFound}></Route>
+                        </Switch>
                     </div>
                 </Content>
             </Layout>

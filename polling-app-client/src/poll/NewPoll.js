@@ -1,5 +1,5 @@
 import {Button, Col, Form, Input, notification, Select} from "antd";
-import {Component} from "react";
+import React,{Component} from "react";
 import {MAX_CHOICES, POLL_CHOICE_MAX_LENGTH, POLL_LIST_SIZE, POLL_QUESTION_MAX_LENGTH} from "../constants";
 import Icon, {PlusOutlined} from "@ant-design/icons";
 import {createPoll} from "../util/APIUtils";

@@ -1,6 +1,6 @@
-import {Loading3QuartersOutlined} from "@ant-design/icons";
+import Icon, {Loading3QuartersOutlined} from "@ant-design/icons";
 import {Spin} from "antd";
-
+import React, {Component} from "react";
 export default function LoadingIndicator(props) {
     const antIcon = <Loading3QuartersOutlined style={{fontSize: 30}} spin/>
     return (

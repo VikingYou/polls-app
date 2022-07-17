@@ -1,5 +1,5 @@
 import {Button, Form, Input, notification} from "antd";
-import {Component} from "react";
+import React,{Component} from "react";
 import {ACCESS_TOKEN} from "../../constants";
 import {login} from "../../util/APIUtils";
 import Icon from "@ant-design/icons";

@@ -1,8 +1,8 @@
-import {Component} from "react";
+import React, {Component} from "react";
 import {POLL_LIST_SIZE} from "../constants";
 import {castVotes, getAllPolls, getUserCreatedPolls, getUserVotedPolls} from "../util/APIUtils";
 import {Button, notification} from "antd";
-import Poll from "./Poll";
+import Poll from './Poll';
 import {PlusSquareTwoTone} from "@ant-design/icons";
 import LoadingIndicator from "../common/LoadingIndicator";
 import {useNavigate, withRouter} from "react-router-dom";

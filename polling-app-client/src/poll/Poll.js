@@ -1,5 +1,5 @@
 import {Avatar, Button, Radio} from "antd";
-import {Component} from "react";
+import React, {Component} from "react";
 import {Link} from "react-router-dom";
 import {getAvatarColor} from "../util/Colors";
 import {formatDateTime} from "../util/Helpers";

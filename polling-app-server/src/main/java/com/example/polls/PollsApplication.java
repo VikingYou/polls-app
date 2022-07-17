@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.convert.Jsr310Converters;
 
 import javax.annotation.PostConstruct;
-import javax.persistence.Entity;
 import java.util.TimeZone;
 
 @SpringBootApplication

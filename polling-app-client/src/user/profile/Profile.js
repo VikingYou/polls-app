@@ -1,4 +1,4 @@
-import {Component} from "react";
+import React, {Component} from "react";
 import {Avatar, Tabs} from "antd";
 import {getUserProfile} from "../../util/APIUtils";
 import {formatDate} from "../../util/Helpers";

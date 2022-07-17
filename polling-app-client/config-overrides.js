@@ -1,12 +1,16 @@
-const {override, fixBabelImports, addLessLoader} = require('customize-cra');
+
+const { injectBabelPlugin } = require('react-app-rewired');
 const rewireLess = require('react-app-rewire-less');
 
-module.exports = override(
-    fixBabelImports("babel-plugin-import", {
-        libraryName: "antd-mobile",
-        style: true
-    }),
-    addLessLoader({
-        ident: 'postcss'
-    })
-);
+module.exports = function override(config, env) {
+    config = injectBabelPlugin(['import', { libraryName: 'antd', style: true }], config);
+    config = rewireLess.withLoaderOptions({
+        modifyVars: {
+            "@layout-body-background": "#FFFFFF",
+            "@layout-header-background": "#FFFFFF",
+            "@layout-footer-background": "#FFFFFF"
+        },
+        javascriptEnabled: true
+    })(config, env);
+    return config;
+};

@@ -5,8 +5,13 @@ import com.example.polls.model.User;
 import com.example.polls.payload.ChoiceResponse;
 import com.example.polls.payload.PollResponse;
 import com.example.polls.payload.UserSummary;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
